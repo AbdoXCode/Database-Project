@@ -1,0 +1,112 @@
+<div class="p-4 sm:ml-64">
+
+    <div class="flex justify-center items-center min-h-[80vh] w-full">
+
+        <section class="w-full flex flex-wrap justify-start items-center max-w-[90%] xl:max-w-7xl">
+            <div class="flex flex-wrap justify-start items-center mb-6 gap-3">
+
+                <div class="flex flex-wrap justify-start items-center mb-6 gap-4">
+                    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mr-2">
+                        Course Status:
+                    </h3>
+
+                    <button (click)="setFilter('All')" [class]="activeFilter() === 'All' 
+            ? 'bg-blue-600 text-white border-blue-600 shadow-md' 
+            : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50 hover:border-gray-300'"
+                        class="px-5 py-2 text-sm font-medium rounded-full border transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1">
+                        All Courses
+                    </button>
+
+                    <button (click)="setFilter('Completed')" [class]="activeFilter() === 'Completed' 
+            ? 'bg-blue-600 text-white border-blue-600 shadow-md' 
+            : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50 hover:border-gray-300'"
+                        class="px-5 py-2 text-sm font-medium rounded-full border transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1">
+                        Completed Courses
+                    </button>
+
+                    <button (click)="setFilter('Incomplete')" [class]="activeFilter() === 'Incomplete' 
+            ? 'bg-blue-600 text-white border-blue-600 shadow-md' 
+            : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50 hover:border-gray-300'"
+                        class="px-5 py-2 text-sm font-medium rounded-full border transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1">
+                        Incomplete Courses
+                    </button>
+                </div>
+            </div>
+            <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+
+                <table class="w-full text-sm text-left rtl:text-right text-body">
+                    <thead
+                        class="text-center text-sm text-body bg-neutral-secondary-medium border-b border-default-medium">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Course Description</th>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Course ID</th>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Course Name</th>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Credits</th>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Grade</th>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Section ID</th>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Status</th>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Add</th>
+                            <th scope="col" class="px-6 py-3 font-medium whitespace-nowrap">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @if (coursesInfo()) {@for (course of coursesInfo(); track $index) {
+                        <tr class="border-b border-default-medium hover:bg-neutral-tertiary transition-colors">
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{course.Course_Description}}
+                            </td>
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{course.Course_ID}}
+                            </td>
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{course.Course_Name}}
+                            </td>
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{course.Credits}}
+                            </td>
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{course.Grade}}
+                            </td>
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{course.Section_ID}}
+                            </td>
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{course.Status}}
+                            </td>
+                            @if(course.Status === 'Incomplete'|| course.Status === ''){
+                            <td class="px-6 py-4">
+                                <button (click)="registerCourse(course.Section_ID)"
+                                    class="px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white rounded-md duration-200 font-medium">
+                                    Add
+                                </button>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button (click)="withdrawCourse(course.Section_ID)"
+                                    class="px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-md duration-200 font-medium">
+                                    Delete
+                                </button>
+                            </td>
+                            }
+                            @else if (course.Status === 'Enrolled') {
+                            <td class="px-6 py-4">
+                                <button disabled
+                                    class="px-3 py-1.5 bg-gray-400 text-white rounded-md duration-200 font-medium cursor-not-allowed">
+                                    Add
+                                </button>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button (click)="withdrawCourse(course.Section_ID)"
+                                    class="px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-md duration-200 font-medium">
+                                    Delete
+                                </button>
+                                }
+                        </tr>
+                        }}
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+</div>

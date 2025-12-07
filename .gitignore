@@ -1,0 +1,82 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Runtime / PID files
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage and test reports
+coverage/
+*.lcov
+.nyc_output/
+lib-cov/
+
+# Build / distribution directories
+dist/
+build/
+out/
+out-tsc/
+.bazel-out/
+jspm_packages/
+.tmp
+public/
+
+# Compiled binary addons
+build/Release/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Optional npm cache
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# dotenv environment files
+.env
+.env.local
+.env.*.local
+
+# Framework / tool caches
+.cache/
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.angular/cache/
+.sass-cache/
+
+# IDEs
+.vscode/
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+*.sublime-workspace
+.history/*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+/connect.lock
+/libpeerconnection.log
+__screenshots__/
+testem.log
+/typings
+*.docx
