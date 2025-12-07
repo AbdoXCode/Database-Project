@@ -2,6 +2,10 @@
 
 A comprehensive university enrollment management system designed to manage data related to students, instructors, courses, departments, and sections. The system ensures accurate tracking of course information, student registrations, prerequisites, and assignments.
 
+> ⚠️ **Important Notice**: This project is currently not accessible as it requires a remote server connection that is no longer active. The backend server was hosted locally and accessed remotely by the frontend during development.
+> 
+> [Live Preview](https://fcds-system.vercel.app/login) (Server unavailable)
+
 ## Contributors
 
 We would like to thank the following people for their contributions to this project:
@@ -22,8 +26,6 @@ We would like to thank the following people for their contributions to this proj
 - [Entity Relationships](#entity-relationships)
 - [Data Dictionary](#data-dictionary)
 - [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
 
 ---
 
