@@ -80,3 +80,4 @@ __screenshots__/
 testem.log
 /typings
 *.docx
+*.pdf
